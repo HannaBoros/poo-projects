@@ -1,0 +1,7 @@
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\bin\Debug\sortare_nume.exe.config
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\bin\Debug\sortare_nume.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\bin\Debug\sortare_nume.pdb
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\obj\Debug\sortare_nume.csproj.CoreCompileInputs.cache
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\obj\Debug\sortare_nume.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\obj\Debug\sortare_nume.pdb
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\sortare_localizata\sortare_nume\sortare_nume\obj\Debug\sortare_nume.csprojAssemblyReference.cache

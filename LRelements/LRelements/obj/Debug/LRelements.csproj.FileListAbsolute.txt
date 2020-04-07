@@ -1,0 +1,6 @@
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\bin\Debug\LRelements.exe.config
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\bin\Debug\LRelements.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\bin\Debug\LRelements.pdb
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\obj\Debug\LRelements.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\obj\Debug\LRelements.pdb
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\LRelements\LRelements\obj\Debug\LRelements.csproj.CoreCompileInputs.cache

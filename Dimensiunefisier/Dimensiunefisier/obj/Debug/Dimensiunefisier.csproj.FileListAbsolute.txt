@@ -1,0 +1,7 @@
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\obj\Debug\Dimensiunefisier.csprojAssemblyReference.cache
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\obj\Debug\Dimensiunefisier.csproj.CoreCompileInputs.cache
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\bin\Debug\Dimensiunefisier.exe.config
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\bin\Debug\Dimensiunefisier.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\bin\Debug\Dimensiunefisier.pdb
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\obj\Debug\Dimensiunefisier.exe
+C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\LR\Dimensiunefisier\Dimensiunefisier\obj\Debug\Dimensiunefisier.pdb
