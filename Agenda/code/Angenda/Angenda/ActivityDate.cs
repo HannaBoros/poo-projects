@@ -8,9 +8,9 @@ namespace Angenda
 {
     class ActivityDate
     {
-
-        private DateTime startDate { get; set; }
-        private DateTime finishDate { get; set; }
+        
+        public DateTime startDate { get; set; }
+        public DateTime finishDate { get; set; }
 
         public ActivityDate()
         {

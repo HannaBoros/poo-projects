@@ -8,11 +8,12 @@ namespace Angenda
 {
     class Person
     {
-        private string firstName { get; set; }
-        private string lastName { get; set; }
-        private string phoneNumber { get; set; }
-        private string emailAddress { get; set; }
-        private string birthDay { get; set; }
+        public string ID { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string phoneNumber { get; set; }
+        public string emailAddress { get; set; }
+        public string birthDay { get; set; }
 
         public Person()
         {
@@ -21,7 +22,7 @@ namespace Angenda
 
         public override string ToString()
         {
-           return  firstName+ ' '+lastName+' '+ ";"+' '+phoneNumber+' '+ ";" + ' '+emailAddress + ' ' + ";" + ' ' + birthDay + ' ';
+           return ID + ":" + ' ' + firstName + ' '+lastName+ ";"+' '+phoneNumber+ ";"+' '+emailAddress+ ";" + ' ' + birthDay + ';';
         }
 
 

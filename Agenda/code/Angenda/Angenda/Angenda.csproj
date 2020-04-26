@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,10 +46,12 @@
   <ItemGroup>
     <Compile Include="Activity.cs" />
     <Compile Include="ActivityDate.cs" />
-    <Compile Include="Agendaa.cs" />
+    <Compile Include="Agenda.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utility\Display.cs" />
+    <Compile Include="utility\ReadInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
