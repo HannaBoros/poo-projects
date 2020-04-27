@@ -19,7 +19,7 @@ namespace Angenda
 
         public override string ToString()
         {
-            return startDate.ToString()  + '-' + '-' + finishDate.ToString();
+            return startDate.ToString()  + "--" + finishDate.ToString();
         }
     }
 }

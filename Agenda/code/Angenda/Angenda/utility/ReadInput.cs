@@ -6,19 +6,30 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.VisualBasic.FileIO;
 using Angenda;
+using System.Globalization;
 
 namespace Angenda.utility
 {
     class ReadInput
     {
-
-
-        public static List<Person> read_csv(string path)
+        public string path;
+        private List<Person> persons;
+        private List<Activity> activities;
+        public List<Agenda> agendas { get; private set; }
+        public ReadInput(string path)
+        {
+            this.persons = new List<Person>();
+            this.activities = new List<Activity>();
+            this.agendas = new List<Agenda>();
+            this.path = path;
+            this.read_activities();
+        }
+        public List<Person> read_persons()
         {
             //https://stackoverflow.com/questions/3507498/reading-csv-files-using-c-sharp
 
             List<Person> persons = new List<Person>();
-            using (TextFieldParser parser = new TextFieldParser(path))
+            using (TextFieldParser parser = new TextFieldParser(this.path))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
@@ -39,23 +50,26 @@ namespace Angenda.utility
             return persons;
         }
 
-        private static Activity create_activity(string[] fields)
+        private Activity create_activity(string[] fields)
         {
-            Activity p = new Activity();
-            p.ID = fields[0];
-            p.name = fields[1];
-            p.description = fields[2];
-            // p.time = fields[3];
+            Activity a = new Activity();
+            a.ID = int.Parse(fields[0]);
+            a.name = fields[1];
+            a.description = fields[2];
+            ActivityDate ad = new ActivityDate();
+            CultureInfo provider = new CultureInfo("fr-FR");
+            ad.startDate = DateTime.ParseExact(fields[3], "g", provider);
+            ad.finishDate = DateTime.ParseExact(fields[4], "g", provider);
+            a.time = ad;
             // p.participants = fields[4];
-            return p;
+            return a;
 
         }
-        public static List<Activity> read_csvActivities(string path)
+        public void read_activities()
         {
             //https://stackoverflow.com/questions/3507498/reading-csv-files-using-c-sharp
-
-            List<Activity> activities = new List<Activity>();
-            using (TextFieldParser parser = new TextFieldParser(path))
+            string activityPerson = @"C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\poo-projects\Agenda\input\activities.csv";
+            using (TextFieldParser parser = new TextFieldParser(activityPerson))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
@@ -63,12 +77,37 @@ namespace Angenda.utility
                 {
                     //Processing row
                     string[] fields = parser.ReadFields();
-                    Activity a = create_activity(fields);
-                   
-                    activities.Add(a);
+                    Activity a = this.create_activity(fields);
+                    this.activities.Add(a);
                 }
             }
-            return activities;
+        }
+
+        public List<Agenda> read_agendas()
+        {
+            using (TextFieldParser parser = new TextFieldParser(this.path))
+            {
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(",");
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+                    Agenda agenda = new Agenda();
+                    agenda.Id = fields[0];
+                    agenda.name = fields[1];
+                    int personID = int.Parse(fields[2]);
+                    for(int i = 3; i < fields.Length; i++)
+                    {
+                        int activityID = int.Parse(fields[i]);
+                        Activity currentActivity = activities.Find(activity => activity.ID == activityID);
+                        agenda.addActivity(currentActivity);
+                    }
+
+                    agendas.Add(agenda);
+                }
+                return this.agendas;
+            }
         }
     }
 }

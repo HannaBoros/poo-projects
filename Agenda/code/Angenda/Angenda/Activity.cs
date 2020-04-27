@@ -8,7 +8,7 @@ namespace Angenda
 {
     class Activity
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public ActivityDate time { get; set; }
@@ -21,7 +21,7 @@ namespace Angenda
 
         public override string ToString()
         {
-            return name + ' ' + description;
+            return name + "; " + description + "; Duration: " + time.ToString();
         }
     }
 }

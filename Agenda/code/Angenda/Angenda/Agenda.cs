@@ -17,22 +17,28 @@ namespace Angenda
 
         public Agenda()
         {
+            activities = new List<Activity>();
+        }
 
+        public void addActivity(Activity activity)
+        {
+            this.activities.Add(activity);
         }
 
         private string getActivities()
         {
-            string activities = "";
+            string allact = "";
             foreach(Activity a in this.activities)
             {
-                activities += a.ToString() + "/n";
+                allact += a.ToString() + ";";
             }
-            return activities;
+            return allact;
         }
 
         public override string ToString()
         {
-            return name + ' ' + person.ToString() + ' ' + getActivities();
+            //return name + ' ' + person.ToString() + ' ' + getActivities();
+            return name + '\n' + getActivities();
         }
     }
 }
