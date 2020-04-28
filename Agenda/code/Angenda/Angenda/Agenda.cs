@@ -38,7 +38,7 @@ namespace Angenda
         public override string ToString()
         {
             //return name + ' ' + person.ToString() + ' ' + getActivities();
-            return name + '\n' + getActivities();
+            return name + person.ToString() +'\n' + getActivities();
         }
     }
 }

@@ -23,13 +23,13 @@ namespace Angenda.utility
             this.agendas = new List<Agenda>();
             this.path = path;
             this.read_activities();
+            this.read_persons();
         }
-        public List<Person> read_persons()
+        public void read_persons()
         {
             //https://stackoverflow.com/questions/3507498/reading-csv-files-using-c-sharp
-
-            List<Person> persons = new List<Person>();
-            using (TextFieldParser parser = new TextFieldParser(this.path))
+            string file_persons = @"C:\Users\Hanniel\Desktop\university\programare orientata pe obiecte\proiecte\poo-projects\Agenda\input\persons.csv";
+            using (TextFieldParser parser = new TextFieldParser(file_persons))
             {
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(",");
@@ -38,7 +38,7 @@ namespace Angenda.utility
                     //Processing row
                     string[] fields = parser.ReadFields();
                     Person p = new Person();
-                    p.ID = fields[0];
+                    p.ID = int.Parse(fields[0]);
                     p.lastName = fields[1];
                     p.firstName = fields[2];
                     p.emailAddress = fields[3];
@@ -47,7 +47,6 @@ namespace Angenda.utility
                     persons.Add(p);
                 }
             }
-            return persons;
         }
 
         private Activity create_activity(string[] fields)
@@ -68,7 +67,7 @@ namespace Angenda.utility
         public void read_activities()
         {
             //https://stackoverflow.com/questions/3507498/reading-csv-files-using-c-sharp
-            string activityPerson = @"C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\poo-projects\Agenda\input\activities.csv";
+            string activityPerson = @"C:\Users\Hanniel\Desktop\university\programare orientata pe obiecte\proiecte\poo-projects\Agenda\input\activities.csv";
             using (TextFieldParser parser = new TextFieldParser(activityPerson))
             {
                 parser.TextFieldType = FieldType.Delimited;
@@ -97,6 +96,8 @@ namespace Angenda.utility
                     agenda.Id = fields[0];
                     agenda.name = fields[1];
                     int personID = int.Parse(fields[2]);
+                    Person p = persons.Find(person => person.ID == personID);
+                    agenda.person = p;
                     for(int i = 3; i < fields.Length; i++)
                     {
                         int activityID = int.Parse(fields[i]);

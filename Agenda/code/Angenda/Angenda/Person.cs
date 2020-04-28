@@ -8,7 +8,7 @@ namespace Angenda
 {
     class Person
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string phoneNumber { get; set; }
