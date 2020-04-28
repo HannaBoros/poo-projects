@@ -1,0 +1,5 @@
+Bala Andrei 3 10 9 10
+Boros Hanna 4 7 10 8 9
+Bala Andreea 3 10 9 10
+Jurca Tania 5 10 7 10 4 8
+Boros Hannel 4 7 10 8 9
