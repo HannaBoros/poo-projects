@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,18 @@ namespace Angenda
 {
     class Program
     {
+        public static void DeleteAFromAgenda(string agendaName, string activityName, List<Agenda> listag)
+        {
+            Agenda a = listag.Find(agenda => agenda.name == agendaName);
+            a.DeleteActivity(activityName);
+        }
+
+        public static List<Activity> ActivitiesFound(int idPerson, DateTime start, DateTime finish, List<Agenda> agendas)
+        {
+            Agenda a = agendas.Find(agenda => agenda.person.ID == idPerson);
+           return  a.FindActivitiesByTime(start, finish);
+            
+        }
         static void Main(string[] args)
         {
             /*List<Person> persons = ReadInput.read_csv(@"C:\Users\Hanniel\Desktop\programare orientata pe obiecte\proiecte\poo-projects\Agenda\input\persons.csv");
@@ -43,6 +56,27 @@ namespace Angenda
             newAgenda.addActivity(newActivity);
             Display.DisplayList(agendaList);
 
+            //cautarea unei activitati
+            Activity search=newAgenda.SearchActivityByName("pescuit");
+            if(search==null)
+                Console.WriteLine("ACtivity was not found in the agenda");
+            else
+                Console.WriteLine(search);
+
+            //stergerea unei activitati
+            DeleteAFromAgenda("Agenda 1", "workout", agendaList);
+
+            //stergerea unei agende
+            agendaList.Remove(newAgenda);
+
+            //generarea unui raport cu toate activitatile unei persoane dintr-un anumit interval de timp
+            //new DateTime("15/06/2008 12:30"),n 
+            Console.WriteLine();
+            CultureInfo provider = new CultureInfo("fr-FR");
+            DateTime startDate = DateTime.ParseExact("15/06/2008 08:30", "g", provider);
+            DateTime finishDate = DateTime.ParseExact("15/06/2008 12:30", "g", provider);
+           List<Activity> list= ActivitiesFound(1, startDate, finishDate, agendaList);
+            Display.DisplayList(list);
 
 
 
