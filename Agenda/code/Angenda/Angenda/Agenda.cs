@@ -8,18 +8,24 @@ namespace Angenda
 {
     class Agenda
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string name { get; set; }
         public Person person { get; set; }
         public List<Activity> activities { get; set; }
-
-
 
         public Agenda()
         {
             activities = new List<Activity>();
         }
 
+        public Agenda(int Id, string name, Person person) 
+        {
+            this.Id = Id;
+            this.name = name;
+            this.person = person;
+            activities = new List<Activity>();
+        }
+      
         public void addActivity(Activity activity)
         {
             this.activities.Add(activity);
@@ -30,10 +36,11 @@ namespace Angenda
             string allact = "";
             foreach(Activity a in this.activities)
             {
-                allact += a.ToString() + ";";
+                allact += a.ToString() + ";\n";
             }
             return allact;
         }
+
 
         public override string ToString()
         {

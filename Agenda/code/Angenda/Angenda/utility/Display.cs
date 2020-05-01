@@ -13,7 +13,9 @@ namespace Angenda.utility
             foreach(T elem in genericList)
             {
                 Console.WriteLine(elem.ToString());
+                Console.WriteLine();
             }
+            Console.WriteLine();
         }
     }
 }

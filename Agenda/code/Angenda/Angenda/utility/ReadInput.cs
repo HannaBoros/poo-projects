@@ -22,8 +22,8 @@ namespace Angenda.utility
             this.activities = new List<Activity>();
             this.agendas = new List<Agenda>();
             this.path = path;
-            this.read_activities();
             this.read_persons();
+            this.read_activities();
         }
         public void read_persons()
         {
@@ -49,7 +49,22 @@ namespace Angenda.utility
             }
         }
 
-        private Activity create_activity(string[] fields)
+        public List<Person> createParticipants(string[] fields)
+        {
+            List<Person> participants = new List<Person>();
+            for (int i = 5; i < fields.Length; i++)
+            {
+                int personID = int.Parse(fields[i]);
+                Person p = persons.Find(person => person.ID == personID);
+                if(p!=null)
+                {
+                    participants.Add(p);
+                }
+                
+            }
+            return participants;
+        }
+        public static Activity create_activity(string[] fields, List<Person> persons)
         {
             Activity a = new Activity();
             a.ID = int.Parse(fields[0]);
@@ -59,8 +74,18 @@ namespace Angenda.utility
             CultureInfo provider = new CultureInfo("fr-FR");
             ad.startDate = DateTime.ParseExact(fields[3], "g", provider);
             ad.finishDate = DateTime.ParseExact(fields[4], "g", provider);
-            a.time = ad;
-            // p.participants = fields[4];
+            a.time = ad;    
+            for (int i = 5; i < fields.Length; i++)
+            {  
+                int personID = int.Parse(fields[i]);
+                Person p = persons.Find(person => person.ID == personID); 
+                if (p != null)
+                {
+                    
+                    a.AddParticipants(p);
+                }
+
+            }
             return a;
 
         }
@@ -76,7 +101,8 @@ namespace Angenda.utility
                 {
                     //Processing row
                     string[] fields = parser.ReadFields();
-                    Activity a = this.create_activity(fields);
+                   
+                    Activity a = create_activity(fields, this.persons);
                     this.activities.Add(a);
                 }
             }
@@ -93,16 +119,19 @@ namespace Angenda.utility
                     //Processing row
                     string[] fields = parser.ReadFields();
                     Agenda agenda = new Agenda();
-                    agenda.Id = fields[0];
+                    agenda.Id = int.Parse(fields[0]);
                     agenda.name = fields[1];
                     int personID = int.Parse(fields[2]);
-                    Person p = persons.Find(person => person.ID == personID);
+                    Person p = this.persons.Find(person => person.ID == personID);
                     agenda.person = p;
                     for(int i = 3; i < fields.Length; i++)
                     {
                         int activityID = int.Parse(fields[i]);
                         Activity currentActivity = activities.Find(activity => activity.ID == activityID);
-                        agenda.addActivity(currentActivity);
+                        if (currentActivity != null)
+                        {
+                            agenda.addActivity(currentActivity);
+                        }
                     }
 
                     agendas.Add(agenda);
