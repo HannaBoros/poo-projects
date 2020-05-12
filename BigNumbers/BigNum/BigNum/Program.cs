@@ -8,7 +8,36 @@ namespace BigNum
 {
     class Program
     {
-        static void Main(string[] args)
+        public static BigNumber Fibonacci(int x)
+        {
+            BigNumber b1 = new BigNumber("0");
+            BigNumber b2 = new BigNumber("1");
+
+            if (x == 0)
+                return b1;
+            if (x == 1)
+                return b2;
+            else
+                return Fibonacci(x- 1).Add(Fibonacci(x - 2));
+
+
+        }
+      
+        public static BigNumber GetFactorial(int n)
+        {
+
+           
+            BigNumber b1 = new BigNumber("1");
+            
+            BigNumber b2= new BigNumber("1");
+            for (int i = 0; i < n; i++)
+            {
+                b2 = b2.Multiply(b1);
+                b1 = b1.Add(new BigNumber("1"));
+            }
+            return b2;
+        }
+            static void Main(string[] args)
         {
             BigNumber b2 = new BigNumber("869");
             BigNumber b3 = new BigNumber("2352");
@@ -24,6 +53,13 @@ namespace BigNum
             Console.WriteLine();
             Console.WriteLine("Multiply:");
             b2.Multiply(b3).display();
+            Console.WriteLine();
+
+            Fibonacci(100).display();
+
+            Console.WriteLine();
+            GetFactorial(1000).display();
+                
         }
     }
 }

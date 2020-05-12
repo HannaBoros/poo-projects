@@ -109,12 +109,23 @@ namespace BigNum
 
         public void display()
         {
+            int i = 0;
+            while(true)
+            {
+                if (this.vector[i] == 0)
+                {
+                    i++;
+
+                }
+                else
+                    break;
+            }
             if(this.vector[0] != 0)
             {
                 Console.Write(this.vector[0]);
             }
 
-            for (int i = 1; i < this.length; i++)
+            for (; i < this.length; i++)
             {
                 Console.Write(this.vector[i]);
             }
